@@ -31,7 +31,7 @@ def input_natural(msg):
             print("Введено нецелое или не число!\nВведите заново: ", end="")
 
 
-N = input_natural("Введите число N: ")
+N = input_natural("Введите количество чисел: ")
 numbers_sum = 0
 for i in range(N):
     numbers_sum += input_int(f"Введите {i + 1}-ое число: ")

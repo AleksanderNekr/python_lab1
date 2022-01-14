@@ -7,7 +7,7 @@ def input_by_pattern(pattern: str, message):
     :return: символ, попадающий в шаблон
     """
     print(message, end="")
-    pattern = list(pattern)
+    pattern = pattern.split(", ")
     while True:
         inp = input()
         if pattern.__contains__(inp):
@@ -40,8 +40,8 @@ def substring_number_in_string(s: str, sub: str):
     return s.index(sub) + 1
 
 
-horizontal_coordinates = 'abcdefgh'
-vertical_coordinates = '12345678'
+horizontal_coordinates = 'a, b, c, d, e, f, g, h'
+vertical_coordinates = '1, 2, 3, 4, 5, 6, 7, 8'
 
 msg_input_horizontal = f"Введите букву горизонтали клетки (диапазон: {horizontal_coordinates}): "
 msg_input_vertical = f"Введите цифру вертикали клетки (диапазон: {vertical_coordinates}): "
