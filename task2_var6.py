@@ -1,5 +1,3 @@
-# Дано несколько чисел. Вычислите их сумму.
-# Сначала вводите количество чисел N, затем вводится ровно N целых чисел.
 def input_int(msg):
     """
     Ввод числа типа int
@@ -9,12 +7,32 @@ def input_int(msg):
     print(msg, end="")
     while True:
         inp = input()
-        if inp.isnumeric():
+        try:
             return int(inp)
-        print("Введено нецелое или не число!\nВведите заново: ", end="")
+        except ValueError:
+            print("Введено нецелое или не число!\nВведите заново: ", end="")
 
 
-N = int(input("Введите число N: "))
+def input_natural(msg):
+    """
+    Ввод натурального числа
+
+    :param msg: сообщение при вводе
+    """
+    print(msg, end="")
+    while True:
+        inp = input()
+        try:
+            if int(inp) < 0:
+                print("Количество чисел должно быть неотрицательным!\nВведите заново:", end=" ")
+            else:
+                return int(inp)
+        except ValueError:
+            print("Введено нецелое или не число!\nВведите заново: ", end="")
+
+
+N = input_natural("Введите число N: ")
 numbers_sum = 0
 for i in range(N):
-    numbers_sum += int(input(f"Введите {i}-ое число: "))
+    numbers_sum += input_int(f"Введите {i + 1}-ое число: ")
+print(f"Сумма чисел: {numbers_sum}")
