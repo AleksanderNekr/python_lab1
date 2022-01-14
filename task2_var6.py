@@ -1,6 +1,6 @@
-def input_int(msg):
+def input_float(msg):
     """
-    Ввод числа типа int
+    Ввод числа типа float
 
     :param msg: сообщение при вводе
     """
@@ -8,9 +8,9 @@ def input_int(msg):
     while True:
         inp = input()
         try:
-            return int(inp)
+            return float(inp)
         except ValueError:
-            print("Введено нецелое или не число!\nВведите заново: ", end="")
+            print("Введено не число!\nВведите заново: ", end="")
 
 
 def input_natural(msg):
@@ -34,5 +34,5 @@ def input_natural(msg):
 N = input_natural("Введите количество чисел: ")
 numbers_sum = 0
 for i in range(N):
-    numbers_sum += input_int(f"Введите {i + 1}-ое число: ")
+    numbers_sum += input_float(f"Введите {i + 1}-ое число: ")
 print(f"Сумма чисел: {numbers_sum}")
