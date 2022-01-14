@@ -24,7 +24,7 @@ def input_natural(msg):
         inp = input()
         try:
             if int(inp) < 0:
-                print("Количество чисел должно быть неотрицательным!\nВведите заново:", end=" ")
+                print("Число должно быть неотрицательным!\nВведите заново:", end=" ")
             else:
                 return int(inp)
         except ValueError:
