@@ -35,4 +35,4 @@ N = input_natural("Введите количество чисел: ")
 numbers_sum = 0
 for i in range(N):
     numbers_sum += input_float(f"Введите {i + 1}-ое число: ")
-print(f"Сумма чисел: {numbers_sum}")
+print(f'Сумма чисел: {numbers_sum}')
