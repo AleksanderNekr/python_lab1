@@ -1,14 +1,14 @@
-def input_coordinate(message):
+def input_coordinate(msg):
     """
     Ввод координат клетки шахматной доски
 
-    :param message: сообщение, в котором указывается, что это за клетка
+    :param msg: сообщение, в котором указывается, что это за клетка
     :return: координаты клетки (тип – str)
     """
     is_correct_coord = False
     coord = ""
     while not is_correct_coord:
-        coord = input(f"Введите координаты клетки, {message} (например: а1, с4): ")
+        coord = input(f"Введите координаты клетки, {msg} (например: а1): ").lower()
         if horiz_coords.__contains__(coord[0]) and vert_coords.__contains__(coord[1]):
             print("Координаты успешно введены!\n")
             is_correct_coord = True
