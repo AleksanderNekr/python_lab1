@@ -1,19 +1,21 @@
-def input_by_pattern(pattern: str, message):
+def input_coordinate(message):
     """
-    Ввод символа с проверкой на попадание в шаблон
+    Ввод координат клетки шахматной доски
 
-    :param pattern: шаблон
-    :param message: сообщение при вводе
-    :return: символ, попадающий в шаблон
+    :param message: сообщение, в котором указывается, что это за клетка
+    :return: координаты клетки (тип – str)
     """
-    print(message, end="")
-    pattern = pattern.split(", ")
-    while True:
-        inp = input()
-        if pattern.__contains__(inp):
-            print("Координата успешно введена!")
-            return inp
-        print("Ошибка! Координата не удовлетворяет диапазону\nВведите заново:", end=" ")
+    is_correct_coord = False
+    coord = ""
+    while not is_correct_coord:
+        coord = input(f"Введите координаты клетки, {message} (например: а1, с4): ")
+        if horiz_coords.__contains__(coord[0]) and vert_coords.__contains__(coord[1]):
+            print("Координаты успешно введены!\n")
+            is_correct_coord = True
+        else:
+            print("Координаты введены неверно! Введите заново")
+            is_correct_coord = False
+    return coord
 
 
 def is_correct_queen_move(queen_horiz: int, queen_vert: int, dest_horiz: int, dest_vert: int):
@@ -30,33 +32,13 @@ def is_correct_queen_move(queen_horiz: int, queen_vert: int, dest_horiz: int, de
     return is_correct_rook_move or is_correct_bishop_move
 
 
-def substring_number_in_string(s: str, sub: str):
-    """
-    Номер подстроки в строке
+horiz_coords = 'abcdefgh'
+vert_coords = '12345678'
 
-    :param s: строка
-    :param sub: подстрока
-    """
-    return s.index(sub) + 1
+queen_coord = input_coordinate('где стоит ферзь')
+dest_coord = input_coordinate('куда ферзь должен попасть одним ходом')
 
-
-horizontal_coordinates = 'a, b, c, d, e, f, g, h'
-vertical_coordinates = '1, 2, 3, 4, 5, 6, 7, 8'
-
-msg_input_horizontal = f"Введите букву горизонтали клетки (диапазон: {horizontal_coordinates}): "
-msg_input_vertical = f"Введите цифру вертикали клетки (диапазон: {vertical_coordinates}): "
-
-print("Ввод координат клетки, где стоит ферзь")
-queen_horiz_coord = input_by_pattern(horizontal_coordinates, msg_input_horizontal)
-queen_vert_coord = input_by_pattern(vertical_coordinates, msg_input_vertical)
-
-print("\nВвод координат клетки, куда должен попасть ферзь одним ходом")
-dest_horiz_coord = input_by_pattern(horizontal_coordinates, msg_input_horizontal)
-dest_vert_coord = input_by_pattern(vertical_coordinates, msg_input_vertical)
-
-print("Ферзь сможет одним ходом попасть из первой клетки во вторую"
-      if is_correct_queen_move(substring_number_in_string(horizontal_coordinates, queen_horiz_coord),
-                               int(queen_vert_coord),
-                               substring_number_in_string(horizontal_coordinates, dest_horiz_coord),
-                               int(dest_vert_coord))
-      else "Ферзь не сможет одним ходом попасть из первой клетки во вторую")
+print(f"Ферзь сможет одним ходом попасть из {queen_coord} в {dest_coord}"
+      if is_correct_queen_move(horiz_coords.index(queen_coord[0]) + 1, int(queen_coord[1]),
+                               horiz_coords.index(dest_coord[0]) + 1, int(dest_coord[1]))
+      else f"Ферзь не сможет одним ходом попасть из {queen_coord} в {dest_coord}")
