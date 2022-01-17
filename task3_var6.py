@@ -29,4 +29,4 @@ for i in range(all_points_count):
     is_in_rectangle = 5 <= x <= 7 and 5 <= y <= 6
     if is_in_triangle and not is_in_rectangle:
         shape_points_count += 1
-print(f"{square * shape_points_count / all_points_count}")
+print(f"Площадь примерно равна {square * shape_points_count / all_points_count}")
