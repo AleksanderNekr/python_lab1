@@ -23,8 +23,8 @@ def input_natural(msg):
     while True:
         inp = input()
         try:
-            if int(inp) < 0:
-                print("Число должно быть неотрицательным!\nВведите заново: ", end="")
+            if int(inp) <= 0:
+                print("Число должно быть положительным!\nВведите заново: ", end="")
             else:
                 return int(inp)
         except ValueError:
