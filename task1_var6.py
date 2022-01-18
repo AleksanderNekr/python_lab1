@@ -18,7 +18,7 @@ def input_coordinate(msg):
     return coord
 
 
-def is_correct_queen_move(queen_horiz: int, queen_vert: int, dest_horiz: int, dest_vert: int):
+def is_correct_queen_move(queen_horiz: str, queen_vert: int, dest_horiz: str, dest_vert: int):
     """
     Проверка корректности хода ферзя из клетки, где он находится, в клетку-цель
 
@@ -27,6 +27,8 @@ def is_correct_queen_move(queen_horiz: int, queen_vert: int, dest_horiz: int, de
     :param dest_horiz: горизонталь клетки-цели
     :param dest_vert: вертикаль клетки-цели
     """
+    queen_horiz = horiz_coords.index(queen_horiz) + 1
+    dest_horiz = horiz_coords.index(dest_horiz) + 1
     is_correct_rook_move = queen_horiz == dest_horiz or queen_vert == dest_vert
     is_correct_bishop_move = abs(queen_vert - dest_vert) == abs(queen_horiz - dest_horiz)
     return is_correct_rook_move or is_correct_bishop_move
@@ -39,6 +41,6 @@ queen_coord = input_coordinate('где стоит ферзь')
 dest_coord = input_coordinate('куда ферзь должен попасть одним ходом')
 
 print(f"Ферзь сможет одним ходом попасть из {queen_coord} в {dest_coord}"
-      if is_correct_queen_move(horiz_coords.index(queen_coord[0]) + 1, int(queen_coord[1]),
-                               horiz_coords.index(dest_coord[0]) + 1, int(dest_coord[1]))
+      if is_correct_queen_move(queen_coord[0], int(queen_coord[1]),
+                               dest_coord[0], int(dest_coord[1]))
       else f"Ферзь не сможет одним ходом попасть из {queen_coord} в {dest_coord}")
