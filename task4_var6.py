@@ -14,3 +14,10 @@ def input_natural(msg):
                 return int(inp)
         except ValueError:
             print("Введено нецелое или не число!\nВведите заново: ", end="")
+
+
+a = int(input())
+b = int(input())
+
+for i in range(b - (b + 1) % 2, a - 1, -2):
+    print(i)

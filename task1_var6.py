@@ -9,7 +9,7 @@ def input_coordinate(msg):
     coord = ""
     while not is_correct_coord:
         coord = input(f"Введите координаты клетки, {msg} (например: а1): ").lower()
-        if horiz_coords.__contains__(coord[0]) and vert_coords.__contains__(coord[1]):
+        if horiz_coords.__contains__(coord[0]) and vert_coords.__contains__(coord[1]) and len(coord) <= 2:
             print("Координаты успешно введены!\n")
             is_correct_coord = True
         else:
