@@ -20,6 +20,11 @@ def input_natural(msg):
 
 
 def square_monte_carlo(X, Y, a, b, c, d, e):
+    """
+    Нахождение площади многоугольника с прямыми углами через некоторые его стороны с помощью метода Монте-Карло
+
+    :return: площадь многоугольника
+    """
     square = X * max(Y, e)
     correct_point_counts = 0
     all_points_count = 100000
@@ -58,4 +63,4 @@ for e, b in product(range(1, round(Z + Y) - 1), range(1, round(Z + Y) - 1)):
             if a + c + d == X:
                 iter_count += 1
                 print(f"{iter_count}-й случай: a = {a}, b = {b}, c = {c}, d = {d}, e = {e},"
-                      f" площадь примерно равна: {square_monte_carlo(X, Y, a, b, c, d, e)}")
+                      f" площадь примерно равна: {square_monte_carlo(X, Y, a, b, c, d, e)}, периметр равен {perimeter}")
