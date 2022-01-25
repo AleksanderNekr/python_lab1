@@ -23,8 +23,10 @@ all_points_count = input_natural("Введите точность вычисле
 square = 8 * 4
 shape_points_count = 0
 for i in range(all_points_count):
-    x = random.uniform(0, 8)
-    y = random.uniform(4, 8)
+    # координата x от 0 до 8
+    x = random.random() * 8
+    # координата y от 4 до 8
+    y = random.random() * 4 + 4
     is_in_triangle = y <= x * 0.5 + 4 and 0 <= x <= 8 and 4 <= y <= 8
     is_in_rectangle = 5 <= x <= 7 and 5 <= y <= 6
     if is_in_triangle and not is_in_rectangle:
