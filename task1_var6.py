@@ -26,12 +26,12 @@ def is_correct_queen_move(queen_coordinate: str, dest_coordinate: str):
     :param dest_coordinate: координаты клетки-цели
     """
     queen_horiz = horiz_coords.index(queen_coordinate[0]) + 1
-    destination_horiz = horiz_coords.index(queen_coordinate[0]) + 1
+    dest_horiz = horiz_coords.index(dest_coordinate[0]) + 1
     queen_vert = int(queen_coordinate[1])
-    destination_vert = int(dest_coordinate[1])
-    
-    is_correct_rook_move = queen_horiz == destination_horiz or queen_vert == destination_vert
-    is_correct_bishop_move = abs(queen_vert - destination_vert) == abs(queen_horiz - destination_horiz)
+    dest_vert = int(dest_coordinate[1])
+
+    is_correct_rook_move = queen_horiz == dest_horiz or queen_vert == dest_vert
+    is_correct_bishop_move = abs(queen_vert - dest_vert) == abs(queen_horiz - dest_horiz)
     return is_correct_rook_move or is_correct_bishop_move
 
 
