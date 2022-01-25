@@ -53,12 +53,12 @@ Y = input_natural("Введите сторону Y: ")
 Z = input_natural("Введите сторону Z: ")
 
 # Так как a + c + d = X и e - Z + b = Y, то e + b = Z + Y,
-# отсюда a + b + c + d + e = X + Y + Z = периметр фигуры
-perimeter = X + Y + Z
+# отсюда a + b + c + d + e = X + Y + Z, тогда периметр фигуры = (X + Y + Z) * 2
+perimeter = (X + Y + Z) * 2
 
 iter_count = 0
 for e, b in product(range(1, round(Z + Y) - 1), range(1, round(Z + Y) - 1)):
-    if e + b == Z + Y:
+    if e + b == Z + Y and e > Z:
         for a, c, d in product(range(1, round(X) - 2), range(1, round(X) - 2), range(1, round(X) - 2)):
             if a + c + d == X:
                 iter_count += 1
