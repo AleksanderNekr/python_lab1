@@ -64,3 +64,5 @@ for e, b in product(range(1, round(Z + Y) - 1), range(1, round(Z + Y) - 1)):
                 iter_count += 1
                 print(f"{iter_count}-й случай: a = {a}, b = {b}, c = {c}, d = {d}, e = {e},"
                       f" площадь примерно равна: {square_monte_carlo(X, Y, a, b, c, d, e)}, периметр равен {perimeter}")
+if iter_count == 0:
+    print('Фигура не существует при заданных параметрах Х, Y и Z!')
