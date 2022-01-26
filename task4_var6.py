@@ -25,9 +25,9 @@ def square_monte_carlo(X, Y, a, b, c, d, e):
 
     :return: площадь многоугольника
     """
-    square = X * max(Y, e)
+    rectangle_square = X * max(Y, e)
     correct_point_counts = 0
-    all_points_count = 100000
+    all_points_count = 10000
     for _ in range(all_points_count):
         from random import random
         # координата x от 0 до max(Y, e)
@@ -44,7 +44,7 @@ def square_monte_carlo(X, Y, a, b, c, d, e):
         is_in_top_square = x <= Y and X - a <= y <= X
         if is_in_top_square or is_in_middle_square or is_in_bottom_square:
             correct_point_counts += 1
-    return square * correct_point_counts / all_points_count
+    return rectangle_square * correct_point_counts / all_points_count
 
 
 print("Принято ограничение на натуральные числа!")
@@ -57,6 +57,7 @@ Z = input_natural("Введите сторону Z: ")
 perimeter = (X + Y + Z) * 2
 
 iter_count = 0
+# Для упрощения записи вложенных циклов используется product из модуля itertools
 for e, b in product(range(1, Z + Y), range(1, Z + Y)):
     if e + b == Z + Y and e > Z:
         for a, c, d in product(range(1, X), range(1, X), range(1, X)):
