@@ -57,9 +57,9 @@ Z = input_natural("Введите сторону Z: ")
 perimeter = (X + Y + Z) * 2
 
 iter_count = 0
-for e, b in product(range(1, round(Z + Y) - 1), range(1, round(Z + Y) - 1)):
+for e, b in product(range(1, Z + Y), range(1, Z + Y)):
     if e + b == Z + Y and e > Z:
-        for a, c, d in product(range(1, round(X) - 2), range(1, round(X) - 2), range(1, round(X) - 2)):
+        for a, c, d in product(range(1, X), range(1, X), range(1, X)):
             if a + c + d == X:
                 iter_count += 1
                 print(f"{iter_count}-й случай: a = {a}, b = {b}, c = {c}, d = {d}, e = {e},"
