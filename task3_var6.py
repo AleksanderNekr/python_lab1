@@ -20,7 +20,7 @@ def input_natural(msg):
 
 
 all_points_count = input_natural("Введите точность вычисления площади методом Монте-Карло (рекомендуется 100 000): ")
-square = 8 * 4
+rectangle_square = 8 * 4
 correct_points_count = 0
 for _ in range(all_points_count):
     # координата x от 0 до 8
@@ -31,4 +31,4 @@ for _ in range(all_points_count):
     is_in_rectangle = 5 <= x <= 7 and 5 <= y <= 6
     if is_in_triangle and not is_in_rectangle:
         correct_points_count += 1
-print(f"Площадь примерно равна {square * correct_points_count / all_points_count}")
+print(f"Площадь примерно равна {rectangle_square * correct_points_count / all_points_count}")
