@@ -32,6 +32,9 @@ def is_correct_queen_move(queen_coordinate: str, dest_coordinate: str):
 
     is_correct_rook_move = queen_horiz == dest_horiz or queen_vert == dest_vert
     is_correct_bishop_move = abs(queen_vert - dest_vert) == abs(queen_horiz - dest_horiz)
+    if queen_coordinate == dest_coordinate:
+        print("Ферзь стоит в той же клетке, куда хочет попасть!")
+        return False
     return is_correct_rook_move or is_correct_bishop_move
 
 

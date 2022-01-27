@@ -47,7 +47,7 @@ def square_monte_carlo(X, Y, a, b, c, d, e):
     return rectangle_square * correct_point_counts / all_points_count
 
 
-print("Принято ограничение на натуральные числа!")
+print("Принято ограничение на натуральные числа для вычисления сторон фигуры!")
 X = input_natural("Введите сторону Х: ")
 Y = input_natural("Введите сторону Y: ")
 Z = input_natural("Введите сторону Z: ")
